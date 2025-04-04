@@ -2,10 +2,10 @@ name: CI
 
 on:
 push:
-branches: [ main ] # O workflow será executado em cada "push" na branch
+branches: [main] # O workflow será executado em cada "push" na branch
 "main".
 pull_request:
-branches: [ main ] # O workflow será executado em cada "pull request"
+branches: [main] # O workflow será executado em cada "pull request"
 direcionado à branch "main".
 
 jobs:
