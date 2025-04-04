@@ -29,4 +29,4 @@ if: github.ref == 'refs/heads/main' # Só executa o deploy quando o commit for
 na branch main.
 uses: actions/deploy-pages@v2
 with:
-folder: . # Diretório a ser deployado (raiz do repositório neste caso)
+folder: . # Diretório a ser deployado (raiz do repositorio neste caso)
