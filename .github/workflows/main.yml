@@ -2,20 +2,17 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ] # O workflow será executado em cada "push" na branch "main".
   pull_request:
-    branches: [ main ]
+    branches: [ main ] # O workflow será executado em cada "pull request" direcionado à branch "main".
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    
-    permissions:
-      id-token: write  # Add this line to give the required permission
-      contents: read
+
+    runs-on: ubuntu-latest # Define o sistema operacional para executar o workflow.
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3 # Faz o "checkout" do código do repositório para a máquina virtual.
 
       - name: Executar testes
         run: |
@@ -25,7 +22,7 @@ jobs:
           exit 0 # Simula testes passando
 
       - name: Deploy para GitHub Pages
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' # Só executa o deploy quando o commit for na branch main.
         uses: actions/deploy-pages@v2
         with:
-          folder: .
+          folder: . # Diretório a ser deployado (raiz do repositório neste caso)
