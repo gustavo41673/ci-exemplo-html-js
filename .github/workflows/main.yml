@@ -2,12 +2,13 @@ name: CI
 
 on:
   push:
-    branches: [main] # O workflow será executado em cada "push" na branch "main".
+    branches: [ main ] # O workflow será executado em cada "push" na branch "main".
   pull_request:
-    branches: [main] # O workflow será executado em cada "pull request" direcionado à branch "main".
+    branches: [ main ] # O workflow será executado em cada "pull request" direcionado à branch "main".
 
 jobs:
   build:
+
     runs-on: ubuntu-latest # Define o sistema operacional para executar o workflow.
 
     steps:
@@ -24,4 +25,4 @@ jobs:
         if: github.ref == 'refs/heads/main' # Só executa o deploy quando o commit for na branch main.
         uses: actions/deploy-pages@v2
         with:
-          folder: . # Diretório a ser deployado (raiz do repositorio neste caso)
+          folder: . # Diretório a ser deployado (raiz do repositório neste caso)
